@@ -1,0 +1,11 @@
+GuardianScrolls Changelog:
+GMT+8 HK/MNL Based Time
+
+RULES FOR VERSION CONTROL:
+Each new scroll ability added = +0.1
+Each scroll ability fix = +0.01
+
+12/19/11 11:45AM - First Commit v0.1
+- Added GSThieving, and Core
+- Deprecation on GSThieving (updateinventory)
+- Core code contains recipes for Mage and Warrior Scrolls, not included yet

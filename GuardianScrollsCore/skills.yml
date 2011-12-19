@@ -1,0 +1,7 @@
+# Skills Configuration for GuardianScrolls
+PickPocketTool: 325
+DamageOnFail: 1
+LoseToolonFail: false
+ItemStolen: item successfully stolen
+TryToStealYou: tried to steal you!
+FailToSteal: you failed to steal.

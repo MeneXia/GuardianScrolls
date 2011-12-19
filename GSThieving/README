@@ -1,0 +1,4 @@
+An implementation of FlingeR's "PickPocket" into GuardianScrolls.
+Named: GSThieving
+
+Depends on "thief.chances" to work properly. Put this in the "GuardianScrolls" folder for this plugin to work properly.

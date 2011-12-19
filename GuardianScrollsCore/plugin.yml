@@ -1,0 +1,15 @@
+name: GuardianScrolls
+main: llhusnire.menexia.guardianscrolls.GuardianScrolls
+version: 0.1
+description: GuardianScrolls with unique abilities.
+#commands:
+ #   dynafish:
+  #      description: Enables or disables dynamite fishing.
+   #     usage: dynafish
+    #df:
+     #   description: Also enables or disables dynamite fishing.
+     #   usage: df
+permissions:
+    GuardianScrolls.use:
+        description: Makes you able to fish using dynamite.
+        default: op

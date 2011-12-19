@@ -1,0 +1,37 @@
+#               .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+#            __.'              ~.   .~              `.__
+#          .'// GuardianScrolls  \./      version     \\`.
+#        .'//    config file      |         0.1         \\`.
+#      .'// .-~"""""""~~~~-._     |     _,-~~~~"""""""~-. \\`.
+#    .'//.-"                 `-.  |  .-'                 "-.\\`.
+#  .'//______.============-..   \ | /   ..-============.______\\`.
+#.'______________________________\|/______________________________`.
+#
+GENERAL_OPTIONS:
+    ENABLED_FOR_ALL: false
+    # Set this to true if you want to bypass permissions and let everybody able to craft scrolls.
+#
+# RECIPE MANAGER:
+# Put in data values specified here: http://www.minecraftwiki.net/wiki/Data_values
+#
+# Leave a space blank if you don't want anything there.
+#
+# RESULT MUST NOT BE A BLOCK. BEWARE.
+# METADATA: is the unique ID that the scroll you craft has. Best to leave it as it is.
+# The recipe is designed in this way:
+# A - B - C
+# D - E - F
+# G - H - I 
+SCROLLS:
+    THIEF_SCROLL:
+        RESULT: 325
+        METADATA: 26
+        A: 1
+        B: 1
+        C: 1
+        D: 1
+        E: 1
+        F: 1
+        G: 1
+        H: 1
+        I: 1
