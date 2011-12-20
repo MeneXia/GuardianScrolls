@@ -28,10 +28,9 @@ import org.bukkit.inventory.PlayerInventory;
 				
 				
 					if (!(((Player) target).hasPermission("GuardianScrolls.protected.Thief"))
-							&&(player.hasPermission("GuardianScrolls.use"))
+							&&(player.hasPermission("GuardianScrolls.use")) // GuardianScrolls.use.Thief
 							&&(player.getItemInHand().getTypeId() == plugin.timmhartel)
 							&&(player.getItemInHand().getDurability() == plugin.metadata)) {
-						
 						
 						
 						PlayerInventory inv = ((Player) target).getInventory();
