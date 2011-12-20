@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="GSThieving/Stable"/>
+	<classpathentry kind="src" path="GuardianScrollsCore/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="GuardianScrollsCore/bin"/>
+</classpath>
