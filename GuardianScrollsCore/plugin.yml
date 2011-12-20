@@ -2,10 +2,11 @@ name: GuardianScrolls
 main: llhusnire.menexia.guardianscrolls.GuardianScrolls
 version: 0.1
 description: GuardianScrolls with unique abilities.
-#commands:
- #   dynafish:
-  #      description: Enables or disables dynamite fishing.
-   #     usage: dynafish
+commands:
+     guardianscrolls:
+         description: Enables or disables dynamite fishing.
+         usage: guardianscrolls
+         aliases: [gs]
     #df:
      #   description: Also enables or disables dynamite fishing.
      #   usage: df
