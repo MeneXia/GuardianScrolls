@@ -23,6 +23,9 @@ public class PickPocket extends JavaPlugin {
 		public final Logger logger = Logger.getLogger("Minecraft");
 	    public static HashMap<Material, Double> IList = new HashMap<Material, Double>();
 	    private final PickPocketPlayerListener playerListener = new PickPocketPlayerListener(this);
+	    
+	    public static HashMap<String, Integer> thiefAMTUSES = new HashMap<String, Integer>();
+	    // player, amount of uses
 
 	    int timmhartel = 325;
 	    int and = 1;
@@ -42,7 +45,7 @@ public class PickPocket extends JavaPlugin {
 	    		for (Plugin plugin : pm.getPlugins()) {
 	    			if (plugin.getDescription().getName().startsWith("GS")) {
 	    				pm.disablePlugin(plugin);
-	    				// no need for return, because this plugin is already disabled.
+	    				return;
 	    			}
 	    		}
 	    	}
