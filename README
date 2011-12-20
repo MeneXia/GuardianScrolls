@@ -4,8 +4,30 @@ GMT+8 HK/MNL Based Time
 RULES FOR VERSION CONTROL:
 Each new scroll ability added = +0.1
 Each scroll ability fix = +0.01
+Any significant progress = 0.1
 
 12/19/11 11:45AM - First Commit v0.1
 - Added GSThieving, and Core
 - Deprecation on GSThieving (updateinventory)
 - Core code contains recipes for Mage and Warrior Scrolls, not included yet
+
+12/21/11 12:00AM - Second Commit v0.2
+- Added skeletal CommandExecutor framework in Core
+- Added HashMaps in Core, will need to move CommandExecutor framework to other plugins
+- Added optional Spout features (not included in config yet!)
+- Added GSSpoutInventoryListener in Core to further improve unstackability of paper
+
+COMMAND ADDITIONS:
+- Using "/guardianscrolls" or "/gs" shows help
+- Using "/guardianscrolls use" or "/gs use" reads one scroll and places the usage count (from config) into the skill's HashMap
+- Using "/guardianscrolls use <number>" or "/gs use <number>" reads an amount of scrolls specified by the number, and places the usage count as well.
+With this command, you cannot read more than 64 scrolls at once (you cannot read what's not on your hand).
+
+TODO: - config.yml in Core needs extra additions and cleanup
+- config.yml in Core's recipes only works if all items are present
+- plugin.yml in Core needs cleanup
+- GSThieving needs cleanup and additions for CommandExecutor framework
+- GSThieving needs proper permissions
+- CommandExecutor framework needs proper messages
+- Add a "/gs read function," or when item is switched, send a message of the scroll name
+- Add a "/gs equip function" to set an active scroll
