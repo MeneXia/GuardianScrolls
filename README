@@ -11,7 +11,7 @@ Any significant progress = 0.1
 - Deprecation on GSThieving (updateinventory)
 - Core code contains recipes for Mage and Warrior Scrolls, not included yet
 
-12/21/11 12:00AM - Second Commit v0.2
+12/21/11 12:23AM - Second Commit v0.21
 - Added skeletal CommandExecutor framework in Core
 - Added HashMaps in Core, will need to move CommandExecutor framework to other plugins
 - Added optional Spout features (not included in config yet!)
@@ -26,8 +26,11 @@ With this command, you cannot read more than 64 scrolls at once (you cannot read
 TODO: - config.yml in Core needs extra additions and cleanup
 - config.yml in Core's recipes only works if all items are present
 - plugin.yml in Core needs cleanup
+- skills.yml in Core needs re-planning
+- Add HashMap saving and loading!
 - GSThieving needs cleanup and additions for CommandExecutor framework
 - GSThieving needs proper permissions
 - CommandExecutor framework needs proper messages
 - Add a "/gs read function," or when item is switched, send a message of the scroll name
 - Add a "/gs equip function" to set an active scroll
+- Add admin command controls
