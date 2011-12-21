@@ -1,17 +1,17 @@
-GuardianScrolls Changelog:
+GuardianScrolls Alpha Changelog:
 GMT+8 HK/MNL Based Time
 
-RULES FOR VERSION CONTROL:
+RULES FOR VERSION CONTROL ALPHA:
 Each new scroll ability added = +0.1
 Each scroll ability fix = +0.01
-Any significant progress = 0.1
+Any significant progress = +0.1
 
-12/19/11 11:45AM - First Commit v0.1
+12/19/11 11:45AM - 1st Commit v0.1
 - Added GSThieving, and Core
 - Deprecation on GSThieving (updateinventory)
 - Core code contains recipes for Mage and Warrior Scrolls, not included yet
 
-12/21/11 12:23AM - Second Commit v0.21
+12/21/11 12:23AM - 2nd, 3rd, 4th Commit v0.22
 - Added skeletal CommandExecutor framework in Core
 - Added HashMaps in Core, will need to move CommandExecutor framework to other plugins
 - Added optional Spout features (not included in config yet!)
