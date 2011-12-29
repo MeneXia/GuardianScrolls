@@ -7,12 +7,12 @@ Each new scroll ability added = +1 to MinorRelease
 Each scroll ability fix = +1 to Build, varies on difficulty of fix
 Any significant progress = +1 to MinorRelease
 
-12/19/11 11:45AM - 1st Commit v0.1
+12/19/11 11:45AM - v0.1
 - Added GSThieving, and Core
 - Deprecation on GSThieving (updateinventory)
 - Core code contains recipes for Mage and Warrior Scrolls, not included yet
 
-12/21/11 12:23AM - 2nd, 3rd, 4th Commit v0.22
+12/21/11 12:23AM - v0.22
 - Added skeletal CommandExecutor framework in Core
 - Added HashMaps in Core, will need to move CommandExecutor framework to other plugins
 - Added optional Spout features (not included in config yet!)
@@ -36,7 +36,7 @@ TODO: - config.yml in Core needs extra additions and cleanup
 - Add a "/gs equip function" to set an active scroll
 - Add admin command controls
 
-12/29/11 6:30PM - 5th Commit - v0.3.1
+12/29/11 6:30PM - v0.3.1
 - Changed version rules
 - Changed layout of projects, will now fall into one project in Eclipse
 - Each plugin will have its own source folder in the master folder
@@ -61,3 +61,7 @@ Possible CommandLess functionality idea:
 Add another recipe - "ScrollTracker"
 "Left Click" using ScrollTracker in order to see which scrolls you currently have
 "Right Click" using ScrollTracker to cycle scroll usage
+
+12/29/11 8:23PM - v0.3.2
+- Inputted correct version number in Core's plugin.yml
+- Revised README

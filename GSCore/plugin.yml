@@ -1,6 +1,6 @@
 name: GuardianScrolls
 main: llhusnire.menexia.guardianscrolls.GuardianScrolls
-version: 0.22
+version: 0.3.2
 description: GuardianScrolls with unique abilities.
 commands:
      guardianscrolls:
