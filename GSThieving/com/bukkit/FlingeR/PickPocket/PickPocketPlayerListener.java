@@ -2,6 +2,9 @@ package com.bukkit.FlingeR.PickPocket;
 
 import java.util.Random;
 
+import llhusnire.menexia.guardianscrolls.GuardianScrolls;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -23,15 +26,21 @@ import org.bukkit.inventory.PlayerInventory;
 			else {
 			Player player = event.getPlayer();
 			Entity target = event.getRightClicked();
+			GuardianScrolls core = (GuardianScrolls)Bukkit.getServer().getPluginManager().getPlugin("GuardianScrolls");
 			if (target instanceof Player) {
 				target = event.getRightClicked();
 				
-				
 					if (!(((Player) target).hasPermission("GuardianScrolls.protected.Thief"))
-							&&(player.hasPermission("GuardianScrolls.use")) // GuardianScrolls.use.Thief
-							&&(player.getItemInHand().getTypeId() == plugin.timmhartel)
-							&&(player.getItemInHand().getDurability() == plugin.metadata)) {
+							&&(player.hasPermission("GuardianScrolls.use.Thief"))
+							&&(core.getHM(player).containsKey(plugin.metadata))
+							/*&&(player.getItemInHand().getTypeId() == plugin.timmhartel)*/) {
 						
+						 if (core.getHMCount(player, plugin.metadata) <= 0) {
+								core.getHM(player).remove(plugin.metadata);
+								return;
+							}
+						// subtract amount of uses left
+						core.getHM(player).put(plugin.metadata, core.getHMCount(player, plugin.metadata) - 1);
 						
 						PlayerInventory inv = ((Player) target).getInventory();
 						Random rand = new Random();
@@ -50,9 +59,9 @@ import org.bukkit.inventory.PlayerInventory;
 						String Attacker = "null";
 						String Victim = "null";
 						if(inv.getItem(x).getAmount()==0){
-							if(plugin.alannahsymes == true){ // SUCCEED MESSAGE
+							/*if(plugin.alannahsymes == true){ // SUCCEED MESSAGE
 								player.setItemInHand(null);
-							}
+							}*/
 							
 								player.damage(plugin.and);
 							Attacker = plugin.whatsupwithlife.replace("%t", player.getName());
@@ -79,9 +88,9 @@ import org.bukkit.inventory.PlayerInventory;
 							player.sendMessage(blonde + Attacker);
 						}		
 						else{ // FAIL MESSAGE
-							if(plugin.alannahsymes == true){
+							/*if(plugin.alannahsymes == true){
 								player.setItemInHand(null);
-							}
+							}*/
 							
 							player.damage(plugin.and);
 							Attacker = plugin.whatsupwithlife.replace("%t", player.getName());
@@ -94,7 +103,7 @@ import org.bukkit.inventory.PlayerInventory;
 							((Player) target).sendMessage(blonde + Victim);
 							return;
 						}
-					}
+					} // return;
 				}
 			}
 			}

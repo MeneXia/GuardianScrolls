@@ -9,13 +9,13 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import llhusnire.menexia.guardianscrolls.GuardianScrolls;
+
 import org.bukkit.Material;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import llhusnire.menexia.guardianscrolls.GuardianScrolls;
 
 public class PickPocket extends JavaPlugin {
 		public static PickPocket plugin;
@@ -23,7 +23,7 @@ public class PickPocket extends JavaPlugin {
 		public final Logger logger = Logger.getLogger("Minecraft");
 	    public static HashMap<Material, Double> IList = new HashMap<Material, Double>();
 	    private final PickPocketPlayerListener playerListener = new PickPocketPlayerListener(this);
-	    
+	    private final RecipeManager rm = new RecipeManager(this);
 	    public static HashMap<String, Integer> thiefAMTUSES = new HashMap<String, Integer>();
 	    // player, amount of uses
 
@@ -34,6 +34,18 @@ public class PickPocket extends JavaPlugin {
 	    String omg_seriously = "[GS] %n tried to pickpocket you!";
 	    String whatsupwithlife = "[GS] Your hand slipped.";
 	    short metadata = 26;
+	    
+	    int A = 0;
+	    int B = 0;
+	    int C = 0;
+	    int D = 0;
+	    int E = 0;
+	    int F = 0;
+	    int G = 0;
+	    int H = 0;
+	    int I = 0;
+	    int result = 339;
+	    int amount = 1;
 	    
 	    public void onEnable() {
 	    	PluginManager pm = getServer().getPluginManager();
@@ -66,6 +78,7 @@ public class PickPocket extends JavaPlugin {
 	    		}
 	    		
 	    	sweet_kiwis();
+	    	getServer().addRecipe(rm.getTS());
 	        pm.registerEvent(Event.Type.PLAYER_INTERACT_ENTITY, playerListener, Event.Priority.Normal, this);
 	    	try {
 	    		readProperties();
@@ -82,12 +95,27 @@ public class PickPocket extends JavaPlugin {
 	    public void sweet_kiwis() {
 	    	GuardianScrolls plugin = (GuardianScrolls)getServer().getPluginManager().getPlugin("GuardianScrolls");
 	    	if(plugin != null && plugin.isEnabled()) {
-	    	timmhartel = plugin.getskillsconfig().getInt("PickPocketTool");
-	    	and = plugin.getskillsconfig().getInt("DamageOnFail");
-	    	alannahsymes = plugin.getskillsconfig().getBoolean("LoseToolonFail");
+	    	/*timmhartel = plugin.getskillsconfig().getInt("PickPocketTool");
+	    	 * may be included, this sets the tool to be used when stealing.
+	    	 */
+	    	and = plugin.getskillsconfig().getInt("THIEF_SCROLL.DamageOnFail");
+	    	//alannahsymes = plugin.getskillsconfig().getBoolean("THIEF_SCROLL.LoseToolonFail");
 	    	whatsupwithlife = plugin.getskillsconfig().getString("FailToSteal");
 	    	aredating = plugin.getskillsconfig().getString("ItemStolen");
 	    	omg_seriously = plugin.getskillsconfig().getString("TryToStealYou");
+	    	metadata = (short) plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.METADATA");
+	    	
+	    	A = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.A");
+	    	B = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.B");
+	    	C = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.C");
+	    	D = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.D");
+	    	E = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.E");
+	    	F = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.F");
+	    	G = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.G");
+	    	H = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.H");
+	    	I = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.I");
+	    	result = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.RESULT");
+	    	amount = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.AMOUNT");
 	    	metadata = (short) plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.METADATA");
 	    	}
 	    }

@@ -10,6 +10,8 @@
 GENERAL_OPTIONS:
     ENABLED_FOR_ALL: false
     # Set this to true if you want to bypass permissions and let everybody able to craft scrolls.
+    USE_SPOUT_FEATURES: true
+    # This function will detect Spout and enable extra features if true.
 #
 # RECIPE MANAGER:
 # Put in data values specified here: http://www.minecraftwiki.net/wiki/Data_values

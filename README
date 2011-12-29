@@ -2,9 +2,10 @@ GuardianScrolls Alpha Changelog:
 GMT+8 HK/MNL Based Time
 
 RULES FOR VERSION CONTROL ALPHA:
-Each new scroll ability added = +0.1
-Each scroll ability fix = +0.01
-Any significant progress = +0.1
+Version format follows this: MajorRelease.MinorRelease.Build
+Each new scroll ability added = +1 to MinorRelease
+Each scroll ability fix = +1 to Build, varies on difficulty of fix
+Any significant progress = +1 to MinorRelease
 
 12/19/11 11:45AM - 1st Commit v0.1
 - Added GSThieving, and Core
@@ -34,3 +35,29 @@ TODO: - config.yml in Core needs extra additions and cleanup
 - Add a "/gs read function," or when item is switched, send a message of the scroll name
 - Add a "/gs equip function" to set an active scroll
 - Add admin command controls
+
+12/29/11 6:30PM - 5th Commit - v0.3.1
+- Changed version rules
+- Changed layout of projects, will now fall into one project in Eclipse
+- Each plugin will have its own source folder in the master folder
+- Cleaned config.yml in Core
+- Added USE_SPOUT_FEATURES in GENERAL_OPTIONS of Core's config.yml
+- Fixed RecipeManager: if you want a slot empty, set the letter in config to 0. Will throw errors if you leave it blank.
+- Cleaned plugin.yml in Core, permissions for GSThieving were added
+- Disabled PickPocketTool and LoseToolOnFail in code, but they are on Core's skill.yml
+- Scratched the idea of each plugin having its own CommandExecutor framework. Instead, a referencing framework of HashMaps are in the Core's CommandExecutor
+- Added HashMap saving and loading (ALPHA) probably needs extreme bug testing. Data for scrolls are saved in binary format in the file "scrolls.dat" in the Core's data folder
+
+TODO: - General code cleanup
+- CommandExecutor framework in Core needs proper messages
+- Add a "/gs read function," or when item is switched, send a message of the scroll name
+- Add a "/gs equip function" to set an active scroll
+- Add admin command controls
+
+Possible CommandLess functionality idea:
+"Right Click" uses a scroll
+"Right Click" a player to read scroll to him - prevents scamming
+"Left Click" a player to give scroll to him
+Add another recipe - "ScrollTracker"
+"Left Click" using ScrollTracker in order to see which scrolls you currently have
+"Right Click" using ScrollTracker to cycle scroll usage

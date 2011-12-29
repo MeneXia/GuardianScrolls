@@ -1,0 +1,10 @@
+# Skills Configuration for GuardianScrolls
+# Thief Scroll's PickPocketTool and LoseToolonFail are currently disabled in code.
+# They are put here for reference.
+THIEF_SCROLL:
+    PickPocketTool: 339
+    LoseToolonFail: false
+    DamageOnFail: 1
+    ItemStolen: item successfully stolen
+    TryToStealYou: tried to steal you!
+    FailToSteal: you failed to steal.
