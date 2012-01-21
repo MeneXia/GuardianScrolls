@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import llhusnire.menexia.guardianscrolls.GuardianScrolls;
+import me.menexia.guardianscrolls.GuardianScrolls;
 
 import org.bukkit.Material;
 import org.bukkit.event.Event;
@@ -33,7 +33,7 @@ public class PickPocket extends JavaPlugin {
 	    String aredating = "[GS] Attempt successful.";
 	    String omg_seriously = "[GS] %n tried to pickpocket you!";
 	    String whatsupwithlife = "[GS] Your hand slipped.";
-	    short metadata = 26;
+	    short metadata = 2;
 	    
 	    int A = 0;
 	    int B = 0;
@@ -45,6 +45,7 @@ public class PickPocket extends JavaPlugin {
 	    int H = 0;
 	    int I = 0;
 	    int result = 339;
+	    int manual = 340;
 	    int amount = 1;
 	    
 	    public void onEnable() {
@@ -79,6 +80,7 @@ public class PickPocket extends JavaPlugin {
 	    		
 	    	sweet_kiwis();
 	    	getServer().addRecipe(rm.getTS());
+	    	getServer().addRecipe(rm.getTSManual());
 	        pm.registerEvent(Event.Type.PLAYER_INTERACT_ENTITY, playerListener, Event.Priority.Normal, this);
 	    	try {
 	    		readProperties();
@@ -103,7 +105,6 @@ public class PickPocket extends JavaPlugin {
 	    	whatsupwithlife = plugin.getskillsconfig().getString("FailToSteal");
 	    	aredating = plugin.getskillsconfig().getString("ItemStolen");
 	    	omg_seriously = plugin.getskillsconfig().getString("TryToStealYou");
-	    	metadata = (short) plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.METADATA");
 	    	
 	    	A = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.A");
 	    	B = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.B");
@@ -115,8 +116,8 @@ public class PickPocket extends JavaPlugin {
 	    	H = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.H");
 	    	I = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.I");
 	    	result = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.RESULT");
-	    	amount = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.AMOUNT");
-	    	metadata = (short) plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.METADATA");
+	    	manual = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.MANUAL");
+	    	amount = plugin.getConfig().getInt("SCROLLS.THIEF_SCROLL.AMOUNT_FROM_CRAFT");
 	    	}
 	    }
 	    

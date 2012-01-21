@@ -1,12 +1,12 @@
-package com.bukkit.FlingeR.PickPocket;
+package me.menexia.scrolltracker;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 
 public class RecipeManager {
-	public static PickPocket plugin;
-	public RecipeManager(PickPocket instance) {
+	public static ScrollTracker plugin;
+	public RecipeManager(ScrollTracker instance) {
 		plugin = instance;
 	}
 	
@@ -72,16 +72,6 @@ public class RecipeManager {
         	ts.setIngredient('I', Material.getMaterial(plugin.I));
         }
         
-        ts.shape(topRow, middleRow, bottomRow);
-        return ts;
-	}
-	
-public ShapedRecipe getTSManual() {
-		String topRow = "ABC";
-		String middleRow = "DEF";
-		String bottomRow = "GHI";
-		ShapedRecipe ts = getTS();
-		ts.setIngredient('E', Material.getMaterial(plugin.manual));
         ts.shape(topRow, middleRow, bottomRow);
         return ts;
 	}

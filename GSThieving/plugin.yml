@@ -1,6 +1,13 @@
 name: GSThieving
 main: com.bukkit.FlingeR.PickPocket.PickPocket
-version: 0.3
+version: 0.3.1
 version comment: Forked from FlingeR's Github, implemented into GuardianScrolls
 website: http://www.opentz.com.ar/MinecraftProjects/?page_id=90
 author: MeneXia
+permissions:
+    GuardianScrolls.use.Thief:
+        description: Allows a player to use the Thief Scroll.
+        default: true
+    GuardianScrolls.protected.Thief:
+        description: Gives player protection from the effects of Thief Scroll.
+        default: op

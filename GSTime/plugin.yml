@@ -1,0 +1,11 @@
+name: GSTime
+main: menexia.surpasses.time.Time
+version: 0.0.1
+author: MeneXia
+permissions:
+    GuardianScrolls.use.DayTime:
+        description: Allows a player to use the DayTime Scroll.
+        default: true
+    GuardianScrolls.use.NightTime:
+        description: Allows a player to use the NightTime Scroll.
+        default: true

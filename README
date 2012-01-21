@@ -65,3 +65,17 @@ Add another recipe - "ScrollTracker"
 12/29/11 8:23PM - v0.3.2
 - Inputted correct version number in Core's plugin.yml
 - Revised README
+
+1/21/12 4:41PM - v0.3.3
+- Dirty Commit
+- Changed class organization, is now one whole plugin
+- Added ScrollTracker, DayTime and NightTime scrolls
+- Now has a neat way of adding scroll and manual recipes
+
+TODO: - General code cleanup, has a good base to start adding more scrolls
+- Delete other source folders
+- Work on the PlayerListener, it needs more checks:
+    -> When switching item in hand, it should show the name of the manual as well
+- Remove anything that's "null" in the strings sent to player
+- I need to get the new thief.chances file from the Roxas computer
+- Anything else I've forgot... o.O

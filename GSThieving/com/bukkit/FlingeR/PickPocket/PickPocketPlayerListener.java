@@ -2,7 +2,7 @@ package com.bukkit.FlingeR.PickPocket;
 
 import java.util.Random;
 
-import llhusnire.menexia.guardianscrolls.GuardianScrolls;
+import me.menexia.guardianscrolls.GuardianScrolls;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -33,6 +33,7 @@ import org.bukkit.inventory.PlayerInventory;
 					if (!(((Player) target).hasPermission("GuardianScrolls.protected.Thief"))
 							&&(player.hasPermission("GuardianScrolls.use.Thief"))
 							&&(core.getHM(player).containsKey(plugin.metadata))
+							&&(core.activeHM.get(player.getName()).equals(plugin.metadata))
 							/*&&(player.getItemInHand().getTypeId() == plugin.timmhartel)*/) {
 						
 						 if (core.getHMCount(player, plugin.metadata) <= 0) {
@@ -106,5 +107,5 @@ import org.bukkit.inventory.PlayerInventory;
 					} // return;
 				}
 			}
-			}
 		}
+	}

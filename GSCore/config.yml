@@ -25,16 +25,62 @@ GENERAL_OPTIONS:
 # D - E - F
 # G - H - I 
 SCROLLS:
+    SCROLL_TRACKER:
+        RESULT: 339
+        AMOUNT_FROM_CRAFT: 1
+        A: 89
+        B: 0
+        C: 0
+        D: 0
+        E: 0
+        F: 0
+        G: 0
+        H: 0
+        I: 0
     THIEF_SCROLL:
-        RESULT: 325
-        METADATA: 26
-        AMOUNT_OF_USES: 10
+        RESULT: 339
+        AMOUNT_FROM_CRAFT: 1
+        MANUAL: 340
+        USES_PER_SCROLL: 2
+        A: 3
+        B: 0
+        C: 0
+        D: 0
+        E: 0
+        F: 0
+        G: 0
+        H: 0
+        I: 0
+    DAYTIME_SCROLL:
+        RESULT: 339
+        AMOUNT_FROM_CRAFT: 1
+        MANUAL: 340
+     # USES_PER_SCROLL WILL DEFAULT TO ONE.
         A: 1
-        B: 1
-        C: 1
-        D: 1
-        E: 1
-        F: 1
-        G: 1
-        H: 1
-        I: 1
+        B: 0
+        C: 0
+        D: 0
+        E: 0
+        F: 0
+        G: 0
+        H: 0
+        I: 0
+    NIGHTTIME_SCROLL:
+        RESULT: 339
+        AMOUNT_FROM_CRAFT: 1
+        MANUAL: 340
+     # USES_PER_SCROLL WILL DEFAULT TO ONE.
+        A: 20
+        B: 0
+        C: 0
+        D: 0
+        E: 0
+        F: 0
+        G: 0
+        H: 0
+        I: 0
+ListofStuff:
+    NotUsableScrolls:
+        - 1
+        - 3
+        - 4

@@ -1,11 +1,11 @@
 name: GuardianScrolls
-main: llhusnire.menexia.guardianscrolls.GuardianScrolls
-version: 0.3.2
+main: me.menexia.guardianscrolls.GuardianScrolls
+version: 0.3.3
 description: GuardianScrolls with unique abilities.
 commands:
      guardianscrolls:
          description: GuardianScrolls base command.
-         usage: /gs use <number>
+         usage: <command>
          aliases: [gs]
 permissions:
     GuardianScrolls.*:
@@ -20,7 +20,7 @@ permissions:
             GuardianScrolls.use.Thief: true
             GuardianScrolls.use.Warrior: true
             GuardianScrolls.use.Mage: true
-        default: op
+        default: false
     GuardianScrolls.protected.*:
         description: Gives access to be protected from any scroll effect.
         children:

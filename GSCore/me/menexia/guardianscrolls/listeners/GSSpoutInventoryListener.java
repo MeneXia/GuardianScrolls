@@ -1,6 +1,6 @@
-package llhusnire.menexia.guardianscrolls.listeners;
+package me.menexia.guardianscrolls.listeners;
 
-import llhusnire.menexia.guardianscrolls.GuardianScrolls;
+import me.menexia.guardianscrolls.GuardianScrolls;
 
 import org.bukkit.Material;
 import org.bukkit.event.Event;
