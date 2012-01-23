@@ -1,8 +1,0 @@
-name: GSScrollTracker
-main: me.menexia.scrolltracker.ScrollTracker
-version: 0.0.1
-author: MeneXia
-permissions:
-    GuardianScrolls.use.ScrollTracker:
-        description: Allows a player to use the ScrollTracker
-        default: true
