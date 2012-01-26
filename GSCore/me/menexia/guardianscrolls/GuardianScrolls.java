@@ -6,9 +6,7 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,13 +25,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 /**
  * GuardianScrolls.java - Main class for scrolls.
  * @author MeneXia - Xavier Luis Ablaza
- * @version 0.3.3
+ * @version 0.3.4
  */
 public class GuardianScrolls extends JavaPlugin {
 	public static GuardianScrolls plugin;
 	public Map<String, Map<Short, Integer>> scrollHM = new HashMap<String, Map<Short, Integer>>();
-	public Map<String, String> activeHM = new HashMap<String, String>();
-	public Set<Integer> notUsable = new HashSet<Integer>();
+	public Map<String, Integer> activeHM = new HashMap<String, Integer>();
 	public HashMap<Plugin, String> ScrollNames = new HashMap<Plugin, String>();
 	public final Logger logger = Logger.getLogger("Minecraft");
 	
@@ -45,12 +42,11 @@ public class GuardianScrolls extends JavaPlugin {
 	private GSCommandExecutor cmdExecutor;
 	private final GSManager manager = new GSManager();
 	private final GSPlayerListener playerListener = new GSPlayerListener(this, manager);
-	private final TestRecipeManager rm = new TestRecipeManager(this);
+	private final RecipeManager rm = new RecipeManager(this, manager);
 	
 	private FileConfiguration skillsconfig = null;
 	private File skillsconfigfile = null;
 	private File mainConfigfile = new File(getDataFolder(), "config.yml");
-	private Player player;
 	
 @Override
 public void onDisable() {
@@ -129,27 +125,25 @@ public void onEnable() {
     e.printStackTrace();
 }
 	
-	cmdExecutor = new GSCommandExecutor(this);
+	cmdExecutor = new GSCommandExecutor(this, manager);
 	getCommand("gs").setExecutor(cmdExecutor);
 	
 	// input recipes here
 	for (int recipeNumber = 1; recipeNumber<5; recipeNumber++) {
-		rm.getRecipe(recipeNumber);
-		this.logger.info("[GuardianScrolls] Added " + VariableSwitcher.getFullScrollName(player, (short) recipeNumber)); //TODO: remove debug
+		rm.getRecipe((short) recipeNumber);
 		if (rm.needsManual(recipeNumber) == false) continue;
-		rm.getRecipeManual(recipeNumber);
-		this.logger.info("[GuardianScrolls] Added " + VariableSwitcher.getFullScrollName(player, (short) recipeNumber) + "'s manual."); //TODO: remove debug
+		rm.getRecipeManual((short) recipeNumber);
 	}
 	
 	a.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
 	a.registerEvent(Event.Type.PLAYER_QUIT, playerListener, Event.Priority.Normal, this);
 	a.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Normal, this);
 	
-	for (Object o : getConfig().getList("ListofStuff.NotUsableScrolls")) {
+	/*for (Object o : getConfig().getList("ListofStuff.NotUsableScrolls")) {
 		if (o instanceof String) {
 			notUsable.add((Integer) o);
 		}
-	}
+	}*/
 	
 	try {
 		S2_ThiefExtra.readProperties();

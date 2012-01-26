@@ -7,30 +7,45 @@ public abstract class Scroll {
 	public abstract void onRightClick(Player player);
 	public abstract void onLeftClick(Player player);
 	public abstract void onRightClick(Player player, PlayerInteractEntityEvent event);
-	public String fullscrollName;
-	public String shortscrollName;
-	public String amtuses;
+	public Integer type;
+	public Integer amtuses;
 	public String permission;
+	public String fullscrollName;
 	public String description;
+	public String configBase;
+	public Boolean needsManual;
+	public Boolean canEquip;
 	
-	public void setFullName(String fullName) {
-		fullscrollName = fullName;
+	public void type(Integer durability) {
+		type = durability;
 	}
 	
-	public void getScrollUses(String config_usesPerScroll) {
-		amtuses = config_usesPerScroll;
+	public void amtuses(String config_usesPerScroll) {
+		amtuses = GuardianScrolls.plugin.getConfig().getInt(config_usesPerScroll);
 	}
 	
-	public void getPermission(String config_permission) {
+	public void permission(String config_permission) {
 		permission = config_permission;
 	}
 	
-	public void getShortName(String shortName) {
-		shortscrollName = shortName;
+	public void fullscrollName(String shortName) {
+		fullscrollName = shortName;
 	}
 	
-	public void setDescription(String config_description) {
+	public void description(String config_description) {
 		description = config_description;
+	}
+	
+	public void configBase(String configBase1) {
+		configBase = configBase1;
+	}
+	
+	public void needsManual(Boolean needsManual1) {
+		needsManual = needsManual1;
+	}
+	
+	public void canEquip(Boolean equippable) {
+		canEquip = equippable;
 	}
 
 }

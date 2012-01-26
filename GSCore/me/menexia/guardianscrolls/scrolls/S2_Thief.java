@@ -15,11 +15,14 @@ import me.menexia.guardianscrolls.Scroll;
 public class S2_Thief extends Scroll {
 	
 	public S2_Thief() {
-		setFullName("Thief Scroll");
-		getScrollUses("SCROLLS.THIEF_SCROLL.USES_PER_SCROLL");
-		getPermission("GuardianScrolls.use.Thief");
-		getShortName("Thief");
-		setDescription("Gives you the ability to steal from someone.");
+		type(2);
+		amtuses("SCROLLS.THIEF_SCROLL.USES_PER_SCROLL");
+		permission("GuardianScrolls.use.Thief");
+		fullscrollName("Thief Scroll");
+		description("Gives you the ability to steal from someone.");
+		configBase("SCROLLS.THIEF_SCROLL.");
+		needsManual(true);
+		canEquip(true);
 	}
 	
 	public void onLeftClick(Player player) {

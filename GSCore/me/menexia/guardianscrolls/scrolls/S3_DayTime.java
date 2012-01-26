@@ -10,11 +10,14 @@ import me.menexia.guardianscrolls.Scroll;
 public class S3_DayTime extends Scroll {
 	
 	public S3_DayTime() {
-		setFullName("DayTime Scroll");
-		getScrollUses("SHOULDBEONE");
-		getPermission("GuardianScrolls.use.Daytime");
-		getShortName("Daytime");
-		setDescription("Makes it Daytime.");
+		type(3);
+		amtuses("SHOULDBEONE");
+		permission("GuardianScrolls.use.Daytime");
+		fullscrollName("Daytime Scroll");
+		description("Makes it Daytime.");
+		configBase("SCROLLS.DAYTIME_SCROLL.");
+		needsManual(true);
+		canEquip(false);
 	}
 
 	@Override

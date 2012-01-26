@@ -12,7 +12,7 @@ import me.menexia.guardianscrolls.scrolls.S4_NightTime;
 import org.bukkit.entity.Player;
 
 public class GSManager {
-	public HashMap<String, Scroll> scrollmatch = new HashMap<String, Scroll>();
+	public HashMap<Integer, Scroll> scrollmatch = new HashMap<Integer, Scroll>();
 	public ArrayList<Scroll> scrolls = new ArrayList<Scroll>();
 	
 	public GSManager() {
@@ -20,7 +20,7 @@ public class GSManager {
 	}
 	
 	public void put(Scroll scroll) {
-		scrollmatch.put(scroll.fullscrollName, scroll);
+		scrollmatch.put(scroll.type, scroll);
 		scrolls.add(scroll);
 	}
 	

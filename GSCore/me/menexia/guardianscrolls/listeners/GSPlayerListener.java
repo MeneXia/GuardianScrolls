@@ -3,7 +3,6 @@ package me.menexia.guardianscrolls.listeners;
 import me.menexia.guardianscrolls.GSManager;
 import me.menexia.guardianscrolls.GuardianScrolls;
 import me.menexia.guardianscrolls.Scroll;
-import me.menexia.guardianscrolls.VariableSwitcher;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,61 +27,53 @@ public class GSPlayerListener extends PlayerListener {
 		Player player = event.getPlayer();
 		ItemStack item = player.getInventory().getItem(event.getNewSlot());
 		if (item != null && item.getType() == Material.PAPER && item.getDurability() != 0) {
-			short scrollType = item.getDurability();
-			String nameofScroll = VariableSwitcher.getFullScrollName(player, scrollType);
+			short type = item.getDurability();
+			Scroll ellinor = manager.scrollmatch.get(type);
+			String nameofScroll = "null";
+			if (ellinor != null) {
+				nameofScroll = ellinor.fullscrollName;
+			}
 			player.sendMessage(ChatColor.GRAY + nameofScroll);
 		}
 	}
 	
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
+		int type = event.getItem().getDurability();
 		if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			Scroll found = manager.scrollEquipped.get(player);
 			
-			if (event.hasItem() && event.getItem().getTypeId() == 339 && event.getItem().getDurability() > 1) {
-				String durability = VariableSwitcher.getFullScrollName(player, event.getItem().getDurability());
-				Scroll ciara = manager.scrollmatch.get(durability);
+			if (event.hasItem() && event.getItem().getTypeId() == 339 && type >= 1) { //including scrolltracker == 1
+				Scroll ciara = manager.scrollmatch.get(type);
 				if (ciara != null) {
 					ciara.onRightClick(player);
 				}
 				
-			} else if (event.hasItem() && event.getItem().getTypeId() == 339 && event.getItem().getDurability() == 1) {  // whoa, a scrolltracker?
-				Scroll st = manager.scrollmatch.get("ScrollTracker");
-				if (st != null) {
-					st.onRightClick(player);
-				}
-				
-			} else if (found != null) {
-				found.onRightClick(event.getPlayer());
-				// equipped scroll? do above.
-				
-				
-				
-			} else if (event.hasItem() && event.getItem().getTypeId() == 340 && event.getItem().getDurability() > 1) {
-				//TODO: show info on book
-				String toGet = VariableSwitcher.getFullScrollName(player, event.getItem().getDurability());
-				Scroll mica = manager.scrollmatch.get(toGet);
+			} else if (event.hasItem() && event.getItem().getTypeId() == 340 && event.getItem().getDurability() >/*=*/ 1) {
+				Scroll mica = manager.scrollmatch.get(type);
 				String description = "The manual is empty.";
 				if (mica != null) {
 					description = mica.description;
 				}
 				player.sendMessage(description);
+				
+			}  else if (found != null) {
+				found.onRightClick(event.getPlayer());
+				// it is correct for this to be last check, it executes whatever is equipped.
 			}
 			
-			// else if (!manager.getScrolls().contains(found)) { // if the scroll right clicked has another use asides from right click, it will not show below message
-			//	player.sendMessage(ChatColor.RED + "No scroll equipped.");
-			//}
-			
 		} else if (event.getAction() == Action.LEFT_CLICK_AIR|event.getAction() == Action.LEFT_CLICK_BLOCK && event.hasItem() && event.getItem().getTypeId() == 339) {
-			String durability = VariableSwitcher.getFullScrollName(player, event.getItem().getDurability());
-			Scroll orchestra = manager.scrollmatch.get(durability);
+			Scroll orchestra = manager.scrollmatch.get(type);
 			if (orchestra != null) {
 				orchestra.onLeftClick(player);
 			}
+			
+			//TODO: Needs ideas for left click book... but if there isn't any, avoid this.
+			
 		}
 	}
 	
-	public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+	public void onPlayerInteractEntity(PlayerInteractEntityEvent event) { //only for when a player right clicks another player/entity (i.e. thief scroll)
 		Player player = event.getPlayer();
 		Scroll found = manager.scrollEquipped.get(player);
 		if (found != null) {
@@ -90,16 +81,6 @@ public class GSPlayerListener extends PlayerListener {
 			// equipped scroll? do above.
 		}
 	}
-	
-/* CRAZY FREAKING DEBUG...	public void onItemHeldChange(PlayerItemHeldEvent event) { - used to be onPlayerHeldItem.. i learned that methods in a listener must be correct in order to register properly o.O
- * inspired by nisovin's BookWorm plugin
-		Player player = event.getPlayer();
-		ItemStack item = player.getInventory().getItem(event.getNewSlot());
-		if (item != null) {player.sendMessage("passed null check");
-		if (item.getType() == Material.PAPER) {player.sendMessage("passed material check");
-		if (item.getDurability() != 0) {player.sendMessage("passed durability check");
-		if (item.getDurability() == 26) {player.sendMessage(ChatColor.RED + "it's a thief scroll!");
-		}}}}}*/
 	
 	/**
 	 * Saves the HashMap into a file when a player quits.

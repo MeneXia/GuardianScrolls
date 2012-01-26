@@ -12,16 +12,18 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import me.menexia.guardianscrolls.GuardianScrolls;
 import me.menexia.guardianscrolls.Scroll;
-import me.menexia.guardianscrolls.VariableSwitcher;
 
 public class S1_ScrollTracker extends Scroll {
 	
 	public S1_ScrollTracker() {
-		setFullName("ScrollTracker");
-		getScrollUses("someconfig.getsomething"); // N/A
-		getPermission("GuardianScrolls.use.ScrollTracker");
-		getShortName("ScrollTracker");
-		setDescription("ScrollTracker is a tool used to organize scrolls.");
+		type(1);
+		amtuses("SHOULDBEONE");
+		permission("GuardianScrolls.use.ScrollTracker");
+		fullscrollName("ScrollTracker");
+		description("A quicker way to access your scrolls.");
+		configBase("SCROLLS.SCROLL_TRACKER.");
+		needsManual(false);
+		canEquip(false);
 	}
 	
 	public void onRightClick(Player player) {

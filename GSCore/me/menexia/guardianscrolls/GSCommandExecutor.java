@@ -14,8 +14,10 @@ import org.bukkit.entity.Player;
 
 public class GSCommandExecutor implements CommandExecutor {
 	private GuardianScrolls plugin;
-	public GSCommandExecutor(GuardianScrolls instance) {
+	private final GSManager manager;
+	public GSCommandExecutor(GuardianScrolls instance, GSManager manager) {
 		plugin = instance;
+		this.manager = manager;
 	}
 	
 	@Override
@@ -36,13 +38,20 @@ public class GSCommandExecutor implements CommandExecutor {
 					return true;
 				}
 				
-				int amtuses = VariableSwitcher.getScrollUses(player);
-				String permVar = VariableSwitcher.getPermission(player);
+				int amtuses = 0;
+				String permVar = "permission";
+				boolean canEquip = false;
+				Scroll zoe = manager.scrollmatch.get(player.getItemInHand().getDurability());
+				if (zoe != null) {
+					amtuses = zoe.amtuses;
+					permVar = zoe.permission;
+					canEquip = zoe.canEquip;
+				}
 				
 				if (args.length == 1) {
 					
 					if (args[0].equalsIgnoreCase("use")) {
-						if (plugin.notUsable.contains(amtuses)) {
+						if (canEquip == false) {
 							return true;
 						}
 						if ((player.getItemInHand().getTypeId() != 339)
@@ -125,6 +134,7 @@ public class GSCommandExecutor implements CommandExecutor {
 				if (args.length == 2) { //TODO: needs rework.
 					if (args[0].equalsIgnoreCase("equip")) {
 						String toEquip = String.valueOf(args[1]);
+						switch ()
 						if (toEquip.equalsIgnoreCase("thief")) {
 							plugin.activeHM.put(player.getName(), "Thief");
 							player.sendMessage("Equipped thief scroll.");

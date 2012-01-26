@@ -10,11 +10,14 @@ import me.menexia.guardianscrolls.Scroll;
 public class S4_NightTime extends Scroll {
 	
 	public S4_NightTime() {
-		setFullName("NightTime Scroll");
-		getScrollUses("SHOULDBEONE");
-		getPermission("GuardianScrolls.use.Nighttime");
-		getShortName("Nighttime");
-		setDescription("Makes it NightTime.");
+		type(4);
+		amtuses("SHOULDBEONE");
+		permission("GuardianScrolls.use.Nighttime");
+		fullscrollName("Nighttime Scroll");
+		description("Makes it NightTime.");
+		configBase("SCROLLS.NIGHTTIME_SCROLL.");
+		needsManual(true);
+		canEquip(false);
 	}
 
 	@Override
