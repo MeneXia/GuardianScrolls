@@ -36,14 +36,17 @@ public class S1_ScrollTracker extends Scroll {
 			Iterator<Short> it = usesList.iterator();
 			try {
 				int cycled = (int)it.next();
-				String scrollName = VariableSwitcher.getShortScrollName(player, cycled);
-				core.activeHM.put(player.getName(), scrollName);
-				player.sendMessage("Equipped " + scrollName + " scroll."); //TODO: proper message
+				core.activeHM.put(player.getName(), cycled);
+				Scroll toget = core.manager.scrollmatch.get(cycled);
+				String scrollName = "null";
+				if (toget != null) {
+					scrollName = toget.fullscrollName;
+				}
+				player.sendMessage("Equipped " + scrollName + "."); //TODO: proper message
 			} catch (Exception e1) { // NoSuchElementException
 				try {
 					int restart = usesList.get(0);
-					String scrollName = VariableSwitcher.getShortScrollName(player, restart);
-					core.activeHM.put(player.getName(), scrollName);
+					core.activeHM.put(player.getName(), restart);
 				} catch (IndexOutOfBoundsException e2) {
 					player.sendMessage(ChatColor.RED + "You have no stored scrolls!"); //TODO: Proper message
 				}

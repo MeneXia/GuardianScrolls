@@ -12,6 +12,7 @@ import me.menexia.guardianscrolls.scrolls.S4_NightTime;
 import org.bukkit.entity.Player;
 
 public class GSManager {
+	public HashMap<String, Integer> equipConversion = new HashMap<String, Integer>();
 	public HashMap<Integer, Scroll> scrollmatch = new HashMap<Integer, Scroll>();
 	public ArrayList<Scroll> scrolls = new ArrayList<Scroll>();
 	

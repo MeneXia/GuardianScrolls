@@ -134,11 +134,8 @@ public class GSCommandExecutor implements CommandExecutor {
 				if (args.length == 2) { //TODO: needs rework.
 					if (args[0].equalsIgnoreCase("equip")) {
 						String toEquip = String.valueOf(args[1]);
-						switch ()
-						if (toEquip.equalsIgnoreCase("thief")) {
-							plugin.activeHM.put(player.getName(), "Thief");
-							player.sendMessage("Equipped thief scroll.");
-							return true;
+						if (manager.equipConversion.get(toEquip) != null) {
+							plugin.activeHM.put(player.getName(), manager.equipConversion.get(toEquip));
 						}
 					}
 				}

@@ -40,7 +40,7 @@ public class GuardianScrolls extends JavaPlugin {
 	protected static boolean USE_SPOUT_FEATURES = true;
 	
 	private GSCommandExecutor cmdExecutor;
-	private final GSManager manager = new GSManager();
+	public final GSManager manager = new GSManager();
 	private final GSPlayerListener playerListener = new GSPlayerListener(this, manager);
 	private final RecipeManager rm = new RecipeManager(this, manager);
 	
